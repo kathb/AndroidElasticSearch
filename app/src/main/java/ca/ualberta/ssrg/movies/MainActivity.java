@@ -10,6 +10,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.ssrg.androidelasticsearch.R;
 
@@ -101,9 +102,11 @@ public class MainActivity extends Activity {
 		movies.clear();
 
 		// TODO: Extract search query from text view
-		
+		TextView tv = (TextView) findViewById(R.id.editText1);
+		String query = tv.getText().toString();
 		// TODO: Run the search thread
-		
+		SearchThread thread = new SearchThread(query);
+		thread.start();
 	}
 	
 	/**
